@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: $primary_color;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 400px;
+  width: 600px;
+}
