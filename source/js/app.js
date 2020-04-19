@@ -2,13 +2,14 @@ import "../scss/index.scss"
 import { imagesFolder, cardArray } from './data.js';
 
 (_=> {
-  let whiteImg = `${imagesFolder}/white.png`;
-  let blankImg = `${imagesFolder}/blank.png`;
-
   cardArray.sort(() => 0.5 - Math.random());
-
+  
   const grid = document.querySelector('.grid');
   const resultDisplay = document.querySelector('#result');
+  const resetButton = document.querySelector('#reset');
+
+  let whiteImg = `${imagesFolder}/white.png`;
+  let blankImg = `${imagesFolder}/blank.png`;
   let cardsChosen =[];
   let cardsChosenId =[];
   let cardsWon =[];
@@ -34,6 +35,8 @@ import { imagesFolder, cardArray } from './data.js';
       cards[optionOneId].setAttribute('src', whiteImg);
       cards[optionTwoId].setAttribute('src', whiteImg);
       cardsWon.push(cardsChosen);
+      cards[optionOneId].setAttribute('class', 'disabled');
+      cards[optionTwoId].setAttribute('class', 'disabled');
     }else {
       cards[optionOneId].setAttribute('src', blankImg);
       cards[optionTwoId].setAttribute('src', blankImg);
@@ -61,6 +64,10 @@ import { imagesFolder, cardArray } from './data.js';
   }
 
   createBoard(cardArray);
+
+  resetButton.addEventListener('click', _=> {
+    location.reload();
+  })
 
 }
 )();
